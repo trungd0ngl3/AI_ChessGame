@@ -35,7 +35,14 @@ public abstract class Piece {
 	}
 
 	public void draw(Graphics2D g2) {
-		
-		g2.drawImage(img, xPos, yPos, 64, 64, null);
+		g2.drawImage(img, xPos, yPos, Board.TILE_SIZE, Board.TILE_SIZE, null);
+	}
+
+	public int getCol() {
+		return col;
+	}
+
+	public int getRow() {
+		return row;
 	}
 }
