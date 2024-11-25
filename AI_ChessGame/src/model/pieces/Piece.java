@@ -8,19 +8,19 @@ import javax.imageio.ImageIO;
 import model.board.Board;
 
 public abstract class Piece {
-	public int col, row;
-	public int xPos, yPos;
-	public boolean isWhite;
+	protected int col, row;
+	protected int xPos, yPos;
+	protected boolean isWhite;
 	protected String name;
 	protected int value;
-	public BufferedImage img;
+	protected BufferedImage img;
 
 	public Piece(int col, int row, boolean isWhite) {
 		this.col = col;
 		this.row = row;
 		this.isWhite = isWhite;
-		xPos = col * Board.TILE_SIZE;
-		yPos = row * Board.TILE_SIZE;
+		xPos = row * Board.TILE_SIZE;
+		yPos = col * Board.TILE_SIZE;
 	}
 
 	public BufferedImage getImage(String path) {
@@ -35,6 +35,7 @@ public abstract class Piece {
 	}
 
 	public void draw(Graphics2D g2) {
+		
 		g2.drawImage(img, xPos, yPos, 64, 64, null);
 	}
 }

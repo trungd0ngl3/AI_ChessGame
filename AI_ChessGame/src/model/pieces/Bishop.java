@@ -1,6 +1,8 @@
 package model.pieces;
 
+import java.awt.image.BufferedImage;
 public class Bishop extends Piece {
+	BufferedImage img;
 	public Bishop(int col, int row, boolean isWhite) {
 		super(col, row, isWhite);
 		if (isWhite) {
