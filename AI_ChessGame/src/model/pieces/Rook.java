@@ -7,6 +7,8 @@ public class Rook extends Piece {
 
 	public Rook(int col, int row, boolean isWhite) {
 		super(col, row, isWhite);
+		name = "rook";
+		value = 5;
 		if (isWhite) {
 			img = getImage("/pieces/white-rook.png");
 		} else {

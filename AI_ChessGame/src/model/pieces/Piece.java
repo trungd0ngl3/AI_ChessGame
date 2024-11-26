@@ -19,8 +19,8 @@ public abstract class Piece {
 		this.col = col;
 		this.row = row;
 		this.isWhite = isWhite;
-		xPos = row * Board.TILE_SIZE;
-		yPos = col * Board.TILE_SIZE;
+		xPos = col * Board.TILE_SIZE;
+		yPos = row * Board.TILE_SIZE;
 	}
 
 	public BufferedImage getImage(String path) {
@@ -38,11 +38,44 @@ public abstract class Piece {
 		g2.drawImage(img, xPos, yPos, Board.TILE_SIZE, Board.TILE_SIZE, null);
 	}
 
+	//////////////////// GETTERS AND SETTERS
 	public int getCol() {
 		return col;
 	}
 
+	public void setCol(int col) {
+		this.col = col;
+	}
+
 	public int getRow() {
 		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
+	}
+
+	public int getxPos() {
+		return xPos;
+	}
+
+	public int getyPos() {
+		return yPos;
+	}
+
+	public void setxPos(int xPos) {
+		this.xPos = xPos;
+	}
+
+	public void setyPos(int yPos) {
+		this.yPos = yPos;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public boolean isWhite() {
+		return this.isWhite;
 	}
 }

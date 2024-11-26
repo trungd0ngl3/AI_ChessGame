@@ -2,7 +2,7 @@ package app;
 
 import javax.swing.JFrame;
 
-import view.MainView;
+import model.board.Board;
 
 public class RunApp {
 	JFrame window;
@@ -10,13 +10,13 @@ public class RunApp {
 	public RunApp() {
 		window = new JFrame();
 		window.setTitle("Chess Game");
-		MainView view = new MainView();
-		window.add(view);
+		Board board = new Board();
+		window.add(board);
 		window.pack();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-
+		board.runGame();
 	}
 
 	public static void main(String[] args) {
