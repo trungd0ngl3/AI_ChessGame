@@ -13,6 +13,7 @@ public class RunApp {
 		Board board = new Board();
 		window.add(board);
 		window.pack();
+		window.setResizable(false);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);

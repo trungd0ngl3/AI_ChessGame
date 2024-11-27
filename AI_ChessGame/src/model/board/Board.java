@@ -56,11 +56,12 @@ public class Board extends JPanel implements Runnable {
 		pieceList.remove(move.getEnemy());
 	}
 
+	// check if the move is valid
 	public boolean isValidMove(Move move) {
-		if (isSameTeam(move.getPiece(), move.getEnemy())) {
-			return false;
-		} else
-			return true;
+		if (selectedPiece.getCol() < MAX_COL - 1 && selectedPiece.getRow() < MAX_ROW - 1) {
+			return !isSameTeam(move.getPiece(), move.getEnemy());
+		}
+		return false;
 	}
 
 	private boolean isSameTeam(Piece p1, Piece p2) {

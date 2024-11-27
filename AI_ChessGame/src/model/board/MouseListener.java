@@ -7,6 +7,7 @@ import model.pieces.Piece;
 
 public class MouseListener extends MouseAdapter {
 	private Board board;
+
 	public MouseListener(Board board) {
 		this.board = board;
 	}
@@ -25,13 +26,14 @@ public class MouseListener extends MouseAdapter {
 	public void mouseReleased(MouseEvent e) {
 		int col = e.getX() / board.TILE_SIZE;
 		int row = e.getY() / board.TILE_SIZE;
-		
-		System.out.println(col + " "+row);
-		if (board.getSelectedPiece() != null) {
-			Move move = new Move(board, col, row, board.getSelectedPiece());
+		Piece selectedPiece = board.getSelectedPiece();
+		if (selectedPiece != null) {
+			Move move = new Move(board, col, row, selectedPiece);
 			if (board.isValidMove(move)) {
 				board.makeMove(move);
-				
+			} else {
+				selectedPiece.setxPos(selectedPiece.getCol() * board.TILE_SIZE);
+				selectedPiece.setyPos(selectedPiece.getRow() * board.TILE_SIZE);
 			}
 		}
 		board.setSelectedPiece(null);
