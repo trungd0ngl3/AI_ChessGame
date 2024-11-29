@@ -2,11 +2,13 @@ package model.pieces;
 
 import java.awt.image.BufferedImage;
 
+import model.board.Board;
+
 public class Pawn extends Piece {
 	BufferedImage img;
 
-	public Pawn(int col, int row, boolean isWhite) {
-		super(col, row, isWhite);
+	public Pawn(Board board,int col, int row, boolean isWhite) {
+		super(board, col, row, isWhite);
 		name = "pawn";
 		value = 1;
 		if (isWhite) {
@@ -16,5 +18,16 @@ public class Pawn extends Piece {
 		}
 
 	}
+
+	@Override
+	public boolean isValidMovement(int newCol, int newRow) {
+		return true;
+	}
+
+	public boolean isCollideWithPiece(int newCol, int newRow) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 }

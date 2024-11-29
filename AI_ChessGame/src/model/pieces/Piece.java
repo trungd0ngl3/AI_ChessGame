@@ -14,11 +14,13 @@ public abstract class Piece {
 	protected String name;
 	protected int value;
 	protected BufferedImage img;
+	Board board;
 
-	public Piece(int col, int row, boolean isWhite) {
+	public Piece(Board board, int col, int row, boolean isWhite) {
 		this.col = col;
 		this.row = row;
 		this.isWhite = isWhite;
+		this.board = board;
 		xPos = col * Board.TILE_SIZE;
 		yPos = row * Board.TILE_SIZE;
 	}
@@ -34,11 +36,15 @@ public abstract class Piece {
 		return result;
 	}
 
+	public abstract boolean isValidMovement(int newCol, int newRow);
+
+	public abstract boolean isCollideWithPiece(int newCol, int newRow);
+
 	public void draw(Graphics2D g2) {
 		g2.drawImage(img, xPos, yPos, Board.TILE_SIZE, Board.TILE_SIZE, null);
 	}
 
-	//////////////////// GETTERS AND SETTERS
+	///// GETTERS AND SETTERS //////
 	public int getCol() {
 		return col;
 	}
@@ -78,4 +84,5 @@ public abstract class Piece {
 	public boolean isWhite() {
 		return this.isWhite;
 	}
+
 }

@@ -17,6 +17,7 @@ public class Move {
 		this.enemy = board.getPiece(newCol, newRow);
 	}
 
+	////// GETTERS AND SETTERS //////
 	public int getOldCol() {
 		return oldCol;
 	}
@@ -64,5 +65,5 @@ public class Move {
 	public void setEnemy(Piece enemy) {
 		this.enemy = enemy;
 	}
-	
+
 }
