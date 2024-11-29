@@ -14,6 +14,8 @@ public abstract class Piece {
 	protected String name;
 	protected int value;
 	protected BufferedImage img;
+
+	public boolean isFirstMove = true;
 	Board board;
 
 	public Piece(Board board, int col, int row, boolean isWhite) {

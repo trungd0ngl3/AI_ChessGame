@@ -23,7 +23,7 @@ public class Board extends JPanel implements Runnable {
 	private CheckChecker checker;
 	private String fenString = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 	private ArrayList<Piece> pieceList;
-
+	
 	private Piece selectedPiece;
 
 	public Board() {
@@ -51,15 +51,15 @@ public class Board extends JPanel implements Runnable {
 		}
 		return null;
 	}
-	
-	
-	public void makeMove(Move move) {
 
+	public void makeMove(Move move) {
 		move.getPiece().setCol(move.getNewCol());
 		move.getPiece().setRow(move.getNewRow());
 
 		move.getPiece().setxPos(move.getNewCol() * TILE_SIZE);
 		move.getPiece().setyPos(move.getNewRow() * TILE_SIZE);
+		
+		move.getPiece().isFirstMove = false;
 		pieceList.remove(move.getEnemy());
 	}
 

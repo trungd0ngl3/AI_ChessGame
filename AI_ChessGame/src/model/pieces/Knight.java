@@ -7,7 +7,7 @@ import model.board.Board;
 public class Knight extends Piece {
 	BufferedImage img;
 
-	public Knight(Board board,int col, int row, boolean isWhite) {
+	public Knight(Board board, int col, int row, boolean isWhite) {
 		super(board, col, row, isWhite);
 		name = "knight";
 		value = 3;
@@ -28,9 +28,7 @@ public class Knight extends Piece {
 	}
 
 	public boolean isCollideWithPiece(int newCol, int newRow) {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
 
 }
