@@ -23,7 +23,7 @@ public class Board extends JPanel implements Runnable {
 	private CheckChecker checker;
 	private String fenString = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 	private ArrayList<Piece> pieceList;
-	
+
 	private Piece selectedPiece;
 
 	public Board() {
@@ -58,7 +58,7 @@ public class Board extends JPanel implements Runnable {
 
 		move.getPiece().setxPos(move.getNewCol() * TILE_SIZE);
 		move.getPiece().setyPos(move.getNewRow() * TILE_SIZE);
-		
+
 		move.getPiece().isFirstMove = false;
 		pieceList.remove(move.getEnemy());
 	}
@@ -78,9 +78,9 @@ public class Board extends JPanel implements Runnable {
 		if (move.getPiece().isCollideWithPiece(move.getNewCol(), move.getNewRow())) {
 			return false;
 		}
-//		if (checker.isKingChecked(move)) {
-//			return false;
-//		}
+		if (checker.isKingChecked(move)) {
+			return false;
+		}
 
 		return true;
 	}
@@ -95,7 +95,7 @@ public class Board extends JPanel implements Runnable {
 
 	public Piece findKing(boolean isWhite) {
 		for (Piece p : pieceList) {
-			if (p.getName().equals("king") && p.isWhite() == isWhite) {
+			if (p.getName().equals("king") && isWhite == p.isWhite()) {
 				return p;
 			}
 		}
@@ -146,9 +146,7 @@ public class Board extends JPanel implements Runnable {
 				}
 				col++;
 			}
-
 		}
-
 	}
 
 	public void paintComponent(Graphics g) {
@@ -163,7 +161,6 @@ public class Board extends JPanel implements Runnable {
 		for (Piece p : pieceList) {
 			p.draw(g2);
 		}
-
 	}
 
 	private void drawValidMovement(Graphics2D g2) {
@@ -195,8 +192,6 @@ public class Board extends JPanel implements Runnable {
 				g2.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 			}
 		}
-
-		// draw highlight of valid move
 
 	}
 
