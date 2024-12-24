@@ -40,7 +40,9 @@ public abstract class Piece {
 
 	public abstract boolean isValidMovement(int newCol, int newRow);
 
-	public abstract boolean isCollideWithPiece(int newCol, int newRow);
+	public boolean isCollideWithPiece(int newCol, int newRow) {
+		return false;
+	}
 
 	public void draw(Graphics2D g2) {
 		g2.drawImage(img, xPos, yPos, Board.TILE_SIZE, Board.TILE_SIZE, null);
@@ -85,6 +87,10 @@ public abstract class Piece {
 
 	public boolean isWhite() {
 		return this.isWhite;
+	}
+
+	public int getValue() {
+		return this.value;
 	}
 
 }

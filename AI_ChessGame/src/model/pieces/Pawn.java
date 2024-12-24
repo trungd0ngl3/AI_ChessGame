@@ -26,7 +26,6 @@ public class Pawn extends Piece {
 			colorIndex = 1;
 		else
 			colorIndex = -1;
-
 		// pawn move 1 square
 		if (col == newCol && newRow == row - colorIndex && board.getPiece(newCol, newRow) == null) {
 			return true;
@@ -35,7 +34,7 @@ public class Pawn extends Piece {
 		if (isFirstMove && col == newCol && newRow == row - colorIndex * 2 && board.getPiece(newCol, newRow) == null) {
 			return true;
 		}
-		// capture left
+		// capture left or right
 		if (newCol == col - 1 && newRow == row - colorIndex && board.getPiece(newCol, newRow) != null) {
 			return true;
 		}
@@ -43,12 +42,36 @@ public class Pawn extends Piece {
 		if (newCol == col + 1 && newRow == row - colorIndex && board.getPiece(newCol, newRow) != null) {
 			return true;
 		}
-
+		// en passant left
+		if (board.getTileNum(newCol, newRow) == board.getEnPassantTile() && newCol == col - 1
+				&& newRow == row - colorIndex && board.getPiece(newCol, newRow + colorIndex) != null) {
+			return true;
+		}
+		// en passant right
+		if (board.getTileNum(newCol, newRow) == board.getEnPassantTile() && newCol == col + 1
+				&& newRow == row - colorIndex && board.getPiece(newCol, newRow + colorIndex) != null) {
+			return true;
+		}
 		return false;
 	}
 
+	@Override
 	public boolean isCollideWithPiece(int newCol, int newRow) {
-		return false;
+		if (isWhite) {
+			for (int i = row - 1; i > newRow; i--) {
+				if (board.getPiece(col, i) != null) {
+					return true;
+				}
+			}
+		} else {
+			for (int i = row + 1; i < newRow; i++) {
+				if (board.getPiece(col, i) != null) {
+					return true;
+				}
+			}
+		}
+
+		return super.isCollideWithPiece(newCol, newRow);
 	}
 
 }

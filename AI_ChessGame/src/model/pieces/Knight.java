@@ -30,5 +30,4 @@ public class Knight extends Piece {
 	public boolean isCollideWithPiece(int newCol, int newRow) {
 		return false;
 	}
-
 }

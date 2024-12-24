@@ -27,7 +27,6 @@ public class Rook extends Piece {
 
 	@Override
 	public boolean isCollideWithPiece(int newCol, int newRow) {
-
 		// check left
 		if (col > newCol) {
 			for (int i = col - 1; i > newCol; i--) {

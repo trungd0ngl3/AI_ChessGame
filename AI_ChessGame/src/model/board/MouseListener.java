@@ -19,6 +19,7 @@ public class MouseListener extends MouseAdapter {
 		Piece pieceXY = board.getPiece(col, row);
 		if (pieceXY != null) {
 			board.setSelectedPiece(pieceXY);
+			board.repaint();
 		}
 	}
 
@@ -36,6 +37,7 @@ public class MouseListener extends MouseAdapter {
 				selectedPiece.setyPos(selectedPiece.getRow() * board.TILE_SIZE);
 			}
 		}
+		board.repaint();
 		board.setSelectedPiece(null);
 	}
 
@@ -44,7 +46,9 @@ public class MouseListener extends MouseAdapter {
 		if (board.getSelectedPiece() != null) {
 			board.getSelectedPiece().setxPos(e.getX() - board.HALF_TILE_SIZE);
 			board.getSelectedPiece().setyPos(e.getY() - board.HALF_TILE_SIZE);
+			board.repaint();
 		}
+
 	}
 
 }

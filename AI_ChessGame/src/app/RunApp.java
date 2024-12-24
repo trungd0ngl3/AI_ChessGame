@@ -13,11 +13,10 @@ public class RunApp {
 		Board board = new Board();
 		window.add(board);
 		window.pack();
-		window.setResizable(false);
+		window.setResizable(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		board.runGame();
 	}
 
 	public static void main(String[] args) {
